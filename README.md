@@ -49,7 +49,14 @@ git clone https://github.com/yourname/ai-cad-compiler.git
 cd ai-cad-compiler
 pip install -e .
 pytest -q
+```
 
+## CLI & Suite
+
+```bash
+aicad "L-bracket 60x40x3 mm, 2 holes M4 pitch 10" --out out
+python tools/run_suite.py --prompts tests/data/prompts.txt --out out/suite
+```
 
 ⸻
 

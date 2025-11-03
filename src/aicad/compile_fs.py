@@ -5,7 +5,7 @@ from .ir import PartSpec, Line, Circle
 def _fs_header(name: str) -> str:
     return (
         "FeatureScript 2200;\n"
-        f"annotation {name} is AnnotatedType<{}>;\n"
+        f"annotation {name} is AnnotatedType<{{}}>;\n"
         "export const GEN_PART = defineFeature(function(ctx is Context, id is Id, def is map)\n"
         "{\n"
         "    var sk = newSketchOnPlane(ctx, id + 'sk', {\"plane\" : plane(plane.ZY)});\n"
@@ -28,7 +28,7 @@ def _fs_footer(depth_mm: float) -> str:
         "    skSolve(sk);\n"
         "    opExtrude(ctx, id + 'ext', {\n"
         "        'entities' : qSketchRegion(id + 'sk'),\n"
-        f"        'endBound' : BoundingType.BLIND,\n"
+        "        'endBound' : BoundingType.BLIND,\n"
         f"        'endDepth' : {depth_mm}*millimeter\n"
         "    });\n"
         "});\n"
