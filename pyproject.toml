@@ -1,14 +1,27 @@
+# Build system configuration
 [build-system]
+# List of packages required to build the project
 requires = ["setuptools>=68", "wheel"]
+# The build backend to use
 build-backend = "setuptools.build_meta"
 
 [project]
+# Name of the project
 name = "aicad-compiler"
+# Version of the project
 version = "0.1.0"
+# Description of the project
 description = "Pure-function language-to-CAD compiler (IR -> FeatureScript/CadQuery) with decorator shells"
+# Minimum Python version required
 requires-python = ">=3.10"
-dependencies = ["typing-extensions>=4.7", "dataclasses-json>=0.6.7"]
+# List of runtime dependencies
+dependencies = [
+    "typing-extensions>=4.7",  # Provides backports of typing features for older Python versions
+    "dataclasses-json>=0.6.7"  # Library for JSON serialization/deserialization of dataclasses
+]
 
 [tool.pytest.ini_options]
-addopts = "-q"
-pythonpath = ["src"]
+# Additional command-line options for pytest
+addopts = "-q"  # Run in quiet mode
+# Paths to add to sys.path
+pythonpath = ["src"]  # Add src directory to Python path for imports
