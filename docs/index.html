@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-CAD Compiler Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI-CAD Compiler Demo</h1>
+            <p class="subtitle">Turn natural language into parametric CAD models</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <h2>Design Intent</h2>
+                <textarea id="intent" placeholder="Enter your CAD design intent here, e.g., 'L-bracket 60x40x3 mm, 2 holes M4 pitch 10'" rows="4">L-bracket 60x40x3 mm, 2 holes M4 pitch 10</textarea>
+                <button id="compile-btn" onclick="compileIntent()">
+                    <span id="btn-text">Compile Design</span>
+                    <span id="btn-spinner" class="spinner" style="display: none;"></span>
+                </button>
+                <div id="status" class="status"></div>
+            </div>
+
+            <div class="output-section">
+                <div class="output-panel">
+                    <h2>FeatureScript Output</h2>
+                    <pre id="featurescript-output" class="code-output"></pre>
+                </div>
+                <div class="output-panel">
+                    <h2>CadQuery Output</h2>
+                    <pre id="cadquery-output" class="code-output"></pre>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>ℹ️ About</h3>
+                <p>This demo runs the AI-CAD Compiler entirely in your browser using <a href="https://pyodide.org" target="_blank">Pyodide</a>.</p>
+                <p><strong>Example intents:</strong></p>
+                <ul>
+                    <li>L-bracket 60x40x3 mm, 2 holes M4 pitch 10</li>
+                    <li>Rectangular plate 100x50x5 mm, 4 corner holes M5</li>
+                    <li>Bracket 80x60x4 mm, single hole M6</li>
+                </ul>
+                <p><a href="https://github.com/yossideutsch1973/ai-cad-compiler" target="_blank">View on GitHub</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
