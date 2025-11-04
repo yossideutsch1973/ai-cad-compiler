@@ -5,6 +5,8 @@ It generates both **Onshape FeatureScript** and **CadQuery (FreeCAD-friendly)** 
 deterministic intermediate representation (IR).  
 All side effects (logging, file I/O, kernel checks) are isolated in decorator shells.
 
+**🌐 [Try the Live Demo](https://yossideutsch1973.github.io/ai-cad-compiler/)** - Run the compiler directly in your browser!
+
 ---
 
 ## ✨ Core Philosophy
