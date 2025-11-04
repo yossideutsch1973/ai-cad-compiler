@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 # Name of the project
 name = "aicad-compiler"
 # Version of the project
-version = "0.1.0"
+version = "0.1.1"
 # Description of the project
 description = "Pure-function language-to-CAD compiler (IR -> FeatureScript/CadQuery) with decorator shells"
 # Minimum Python version required
@@ -25,3 +25,6 @@ dependencies = [
 addopts = "-q"  # Run in quiet mode
 # Paths to add to sys.path
 pythonpath = ["src"]  # Add src directory to Python path for imports
+
+[project.scripts]
+aicad = "aicad.cli:main"
