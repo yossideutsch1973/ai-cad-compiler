@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: aicad-compiler
+Version: 0.1.1
+Summary: Pure-function language-to-CAD compiler (IR -> FeatureScript/CadQuery) with decorator shells
+Requires-Python: >=3.10
+Requires-Dist: typing-extensions>=4.7
+Requires-Dist: dataclasses-json>=0.6.7

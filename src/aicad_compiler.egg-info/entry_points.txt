@@ -1,0 +1,2 @@
+[console_scripts]
+aicad = aicad.cli:main
