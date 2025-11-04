@@ -20,6 +20,7 @@ async function initPyodide() {
         
         // Load the aicad package code directly
         const moduleFiles = [
+            '__init__.py',
             'ir.py',
             'compose.py',
             'dsl_parse.py',
@@ -28,11 +29,11 @@ async function initPyodide() {
             'compile_fs.py',
             'compile_cadquery.py',
             'verify.py',
-            'init.py',
-            '__init__.py'
+            'init.py'
         ];
         
         // Fetch all module files from GitHub
+        // Note: This URL points to the main branch. For testing with forks/branches, update this URL.
         const baseUrl = 'https://raw.githubusercontent.com/yossideutsch1973/ai-cad-compiler/main/src/aicad/';
         
         for (const file of moduleFiles) {
@@ -49,7 +50,7 @@ async function initPyodide() {
             }
         }
         
-        // Create __init__.py in parent directory
+        // Create the aicad package directory
         pyodide.FS.mkdir('/home/pyodide/aicad', { recursive: true });
         
         // Set up the Python path
@@ -109,13 +110,15 @@ async function compileIntent() {
     updateStatus('Compiling design...', 'loading');
     
     try {
+        // Pass the intent as a Python variable to avoid injection issues
+        pyodide.globals.set('user_intent', intent);
+        
         // Run the compilation
         const result = await pyodide.runPythonAsync(`
 from aicad import compile_all
 import json
 
-intent = """${intent.replace(/"/g, '\\"')}"""
-result = compile_all(intent)
+result = compile_all(user_intent)
 
 # Convert result to JSON-friendly format
 output = {
